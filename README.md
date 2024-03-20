@@ -1,4 +1,4 @@
-# URL Shortner Web App
+# URL Shortener Web App
 
 ## Introduction
 

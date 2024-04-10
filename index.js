@@ -8,7 +8,7 @@ const URL = require("./models/url");
 const urlRoute = require("./routes/url");
 const userRoute = require("./routes/user");
 const staticRoute = require("./routes/staticRouter");
-const { restrictToLoggedinUserOnly, checkAuth } = require("./middileware/auth");
+const { restrictToLoggedinUserOnly} = require("./middileware/auth");
 
 const app = express();
 const port = 3000;
@@ -30,6 +30,7 @@ app.use("/url", restrictToLoggedinUserOnly, urlRoute);
 
 app.get("/url/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
+  console.log(shortId);
 
   const entry = await URL.findOneAndUpdate(
     {

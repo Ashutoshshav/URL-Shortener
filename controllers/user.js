@@ -25,10 +25,9 @@ async function handleUserLogin(req, res) {
     //return res.json({ msg: "User not found Please Signup" });
   }
 
-  const sessionId = uuidv4();
-  setUser(sessionId, user);
-  res.cookie("uid", sessionId);
-  console.log(sessionId);
+  const token = setUser(user);
+  res.cookie("token", token);
+  console.log(token);
 
   return res.redirect("/");
   //return res.json({ msg: "User Login" });
